@@ -1,26 +1,31 @@
 const Devices = {
     template:
-    '<div class="device" v-on:click="popups">' +
+    '<li class="device" v-on:click="popups">' +
       '<div class="img-box">' +
       '</div>' +
       '<div class="info-box">' +
-          '<p>Name : {{ name }}</p>' +
+          '<p>device : {{ name }}</p>' +
+          '<p>made : {{ made }}</p>' +
           '<p>price : {{ price }}</p>' +
-          '<p>end : {{ end }}</p>' +
       '</div>' +
-    '</div>',
+    '</li>',
+    props: {
+      name: String,
+      made: String,
+      price: Number
+    },
     data: function() {
       return {
-        name: "Big Campain",
-        price: "$ -10",
-        end: "2018/06/01"
+        name,
+        made,
+        price
       }
     },
     methods: {
       popups: function() {
-        alert("name : " + this.name +
-              "\nprice : " + this.price +
-              "\nend : " + this.end)
+        alert("商品名: " + this.name +
+              "\n製造: " + this.made +
+              "\n値段: " + this.price)
       }
     }
 }
